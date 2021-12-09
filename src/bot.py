@@ -11,8 +11,8 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Client and Bot setup
-client = discord.Client()
-bot = commands.Bot(command_prefix=['!', '.', '$'])
+client = commands.Bot(command_prefix=['!', '.', '$'])
+
 
 
 @client.event
@@ -21,7 +21,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.idle, activity=discord.Game("vaut mieux pas savoir"))
 
 
-@bot.command(name="greeting")
+@client.command(name="greeting")
 async def greeting(ctx, member: discord.Member = None):
     print('greeting launch')
     if member:
@@ -30,11 +30,21 @@ async def greeting(ctx, member: discord.Member = None):
         await ctx.send(f'Hi {ctx.author.name} !')
 
 
-@bot.command(name='video')
-async def video(ctx):
+
+# Managing Cogs
+
+@client.command()
+async def load(ctx, extension):
+    client.load_extension(f'cogs.{extension}')
+
+
+if __name__ == '__main__':
+    for filenames in os.listdir('./cogs'):
+        if filenames.endswith('.py'):
+            client.load_extension(f'cogs.{filenames[:-3]}')
+        
+
     
-    print("Command run")
-    await ctx.send("A special gift for you")
 
 client.run(TOKEN)
 
