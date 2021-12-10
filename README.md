@@ -10,6 +10,7 @@ To launch the program you need to install these modules
 pip install python-dotenv
 pip install discord
 pip install pornhub-api
+pip install NHentai-API
 ```
 
 Inside the source folder type :
