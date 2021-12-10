@@ -13,7 +13,7 @@ pip install pornhub-api
 pip install NHentai-API
 ```
 
-Inside the source folder type :
+Inside the src folder, type:
 ```txt
 python3 bot.py
 ```
