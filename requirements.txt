@@ -1,0 +1,5 @@
+python-dotenv==0.19.2
+aiohttp==3.7.4.post0
+discord==1.7.3
+pornhub-api==0.2.0
+NHentai-API==0.0.19

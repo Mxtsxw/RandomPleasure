@@ -18,6 +18,11 @@ class Ph(commands.Cog):
 
     @commands.command()
     async def video(self, ctx):
+        if random.randint(1, 5) == 3:
+            await ctx.author.send("https://youtu.be/dQw4w9WgXcQ")
+            print(f"{ctx.author} has been Rickrolled")
+            return
+
         tags = random.sample(api.video.tags("f").tags, 5)
         category = random.choice(api.video.categories().categories)
         result = api.search.search(ordering="mostviewed", tags=tags, category=category)
@@ -28,6 +33,7 @@ class Ph(commands.Cog):
         
         video = random.choice(videos)
         await ctx.author.send(video.url)
+        await ctx.message.add_reaction("😌")
 
 
 def setup(client):
