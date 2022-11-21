@@ -17,7 +17,9 @@ Or write this command to do it all at once
 pip install -r requirements.txt
 ```
 
-Inside the *src* folder, type:
+→ The *setup.sh* script create and install all the dependencies inside a virtual python environment.
+
+Once the dependencies installed, you must type this command inside the *src* folder:
 ```txt
 python3 bot.py
 ```
